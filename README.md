@@ -1,6 +1,4 @@
-# Neural Machine Translation - Chatbot
-======================================
-
+## Neural Machine Translation - Chatbot
 
 Introduction
 -------------
@@ -11,9 +9,8 @@ Code is built on top of NMT but because of lack of available interfaces, some th
 
 This project forks NMT. We had to make a change in code allowing use with stable version of TensorFlow (1.4). That allowed us also to fix a bug before official patch.
 
-
 Setup
--------------
+------
 
 Steps to setup project for your needs:
 It is *highly* recommended that you use Python 3.6+. Python 3.4 and 3.5 is likely to work in Linux, but you will eventually hit encoding errors with 3.5 or lower in a Windows environment.
@@ -46,11 +43,8 @@ setup/prepare_data.py:
 
 train.py - starts training process
 
-
-
-
 Inference
--------------
+----------
 
 Whenever model is trained, inference.py, when direct called, allows to "talk to" AI in interactive mode. It will start and setup everythin needed to use trained model (using saved hparams file within model folder and setup/settings.py for the rest of settings or lack of hparams file).
 
@@ -69,16 +63,8 @@ Steps from the question to the answers:
  4. Score responses with -1 (includes `<unk>`, 0 (matches agains at least one rule in setup/answers_blacklist.txt file) or 1 (passes all checks)
  5. Return (show with interactive mode) responses
 
-It is also possible to process batch of the questions by simply using command redirection:
-
-    python inference.py < input_file
-
-or:
-
-    python inference.py < input_file > output_file
-
 Importing nmt-chatbot
--------------
+---------------------
 
 Project allows to be imported for the needs of inference. Simply embed folder within your project and import, then use:
 

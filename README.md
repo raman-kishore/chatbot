@@ -1,5 +1,5 @@
-nmt-chatbot
-===================
+# Neural Machine Translation - Chatbot
+======================================
 
 
 Introduction
@@ -10,7 +10,6 @@ nmt-chatbot is the implementation of chatbot using NMT - Neural Machine Translat
 Code is built on top of NMT but because of lack of available interfaces, some things are "hacked", and parts of the code had to be copied into that project (and will have to be mantained to follow changes in NMT).
 
 This project forks NMT. We had to make a change in code allowing use with stable version of TensorFlow (1.4). That allowed us also to fix a bug before official patch.
-
 
 
 Setup
@@ -30,37 +29,8 @@ It is *highly* recommended that you use Python 3.6+. Python 3.4 and 3.5 is likel
  9. ```$ cd ../```
  10. ```$ python train.py``` Begin training
 
-
-
-Rules files
--------------
-
-Setup folder contains multiple "rules" files (All of them are regex-based:
-
- - vocab_blacklist.txt - removes entities from vocab files
- - vocab_replace.txt - synonyms, replaces entity or it's part with replacement
- - answers_blacklist.txt - disallows answer from being returned (more on that later)
- - answers_detokenize.txt - detokenization rules (removes unneccessary spaces)
- - answers_replace - synonyms, replaces phrase or it's part with replacement
- - protected_phrases.txt - ensures that matching phrases will remain untouched when building vocab file
-
-
-
-
-Tests
--------------
-
-Every rules file has related test script. Those test scripts might be treated as some kind of unit testing. Every modification of fules files might be check against those tests but every modification should be also followed by new test cases in those scripts.
-
-It's important to check everything before training new model. Even slight change might break something.
-
-Test scripts will display check status, checked sentence and evetually check result (if diffrent than assumed).
-
-
-
-
-More detailed informations about training a model
--------------
+Informations about training a model
+-----------------------------------
 
 setup/settings.py consists of multiple settings:
 
@@ -76,15 +46,6 @@ setup/prepare_data.py:
 
 train.py - starts training process
 
-
-
-
-Utils
--------------
-
-utils/run_tensorboard.py is easy to use wrapper starting tensorboard with model folder
-
-utils/pairing_testing_outputs.py - joins model/output_dev file with data/tst2012.form file and prints result to a console allowing easy check if things are going ok during training. Console will consist of input phrase, inferenced output frame and separator.
 
 
 
@@ -148,6 +109,5 @@ With list of questions function will return list of dictionaries.
 For every empty question function will return `None` instead of result dictionary.
 
 With `include_blacklisted` set to false funtion will return either -1 or 1 for the score (and related to that score index)
-
 
 ----------
